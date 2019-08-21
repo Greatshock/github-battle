@@ -1,5 +1,5 @@
-const id = 'dde5d52d393e1f8b84cd'
-const sec = 'c4239e3d2727302cff322038d9351ff1277b60ef'
+const id = "YOUR_CLIENT_ID"
+const sec = "YOUR_SECRET_ID"
 const params = `?client_id=${id}&client_secret=${sec}`
 
 function getErrorMsg (message, username) {
@@ -63,16 +63,16 @@ export function battle (players) {
   ]).then((results) => sortPlayers(results))
 }
 
-export function fetchPopularRepos(language) {
-    const endpoint = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`);
-  
-    return fetch(endpoint)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.items) {
-          throw new Error(data.message);
-        }
-  
-        return data.items;
-      })
-  } 
+export function fetchPopularRepos (language) {
+  const endpoint = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`)
+
+  return fetch(endpoint)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.items) {
+        throw new Error(data.message)
+      }
+
+      return data.items
+    })
+}
